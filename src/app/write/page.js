@@ -2,7 +2,7 @@
 
 export default function WritePage() {
     return (
-        <div>
+        <div className="write-container">
             <h4>글 작성 페이지</h4>
             {/* /api/post/new에 POST요청 */}
             <form action="/api/post/new" method="POST">
