@@ -11,7 +11,10 @@ export const authOptions = {
         GithubProvider({
             clientId: 'Ov23li8lMtt5W4dLlFE9',   // 깃허브 클라이언트ID
             clientSecret: 'a9dbf866de3a48c5a547287ab78e6a8c8b191471',   // 깃허브 클라이언트 비밀번호
-        })
+        }),
+        CredentialProvider({
+
+        }),
     ],
     secret: 'anything'
 };
