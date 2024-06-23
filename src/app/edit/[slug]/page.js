@@ -18,11 +18,13 @@ export default async function EditPage({params}) {
     // findOne(): 하나만 가져오기
     console.log(result);
 
+    const resultIdString = result._id.toString();
+
     return (
         <div className="write-container">
             <h4>수정페이지</h4>
             <form action="/api/post/edit" method="POST">
-                <input type="hidden" name="id" defaultValue={result._id}/>   
+                <input type="hidden" name="id" defaultValue={resultIdString}/>   
                 <input name="title" defaultValue={result.title}/>
                 <input name="content" defaultValue={result.content}/>
                 <button type="submit">수정하기</button>

@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';
 // onClick, fetch, useState: 'use client'
 
 import './LoginBtn.css';
@@ -9,13 +10,20 @@ export default function LoginBtn({login}) {
     return (
         <>
             {
-                login ? (
+                !login ? (
                     <>
-                        <button onClick={()=>{signIn()}}>로그아웃</button>
-                        <sapn>{login.user.name}</sapn>
+                        <button onClick={()=>{signIn()}}>로그인</button>
                     </>
                 ) : (
-                    <button onClick={()=>{signOut()}}>로그인</button>
+                    <button onClick={()=>{signOut()}}>로그아웃</button>
+                )
+            }
+
+            {
+                !login ? (
+                    <Link href='/register' className='user-signup'>회원가입</Link>
+                ) : (
+                    <span>{login?.user?.name}</span>
                 )
             }
         </>
