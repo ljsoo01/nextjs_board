@@ -20,8 +20,8 @@ export default async function EditPage({params}) {
         const db = (await connectDB).db('mydb') 
         let result = await db.collection('post').findOne({_id:ObjectId.createFromHexString(params.slug)});
         
-        // 로그인한 이메일이 글의 이메일과 동일한지 체크
-        if(session.user?.email === result.email) {
+        // 로그인한 이메일이 글의 이메일과 동일한지 체크 (관리자는 가능하게)
+        if(session.user?.email === result.email || session.user?.email === 'admin123@admin.com') {
             const resultIdString = result._id.toString();
         
             return (
