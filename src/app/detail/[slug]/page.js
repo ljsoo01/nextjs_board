@@ -3,6 +3,7 @@
 // localhsot:3000/detail/3
 // slug: 내가 이동한 URL의 값
 
+import Comment from "@/app/components/comment/comment";
 import { connectDB } from "@/util/db";
 import { ObjectId } from "mongodb";
 
@@ -20,7 +21,8 @@ export default async function Detail({params}) {
         <div>
             <h4>상세페이지</h4>
             <h4>{result.title}</h4>
-            <h4>{result.content}</h4>
+            <p>{result.content}</p>
+            <Comment boardId={result._id.toString()}/>
         </div>
     )
 }
